@@ -10,7 +10,6 @@ import lombok.Setter;
 @Table(name = "spoken_languages")
 public class SpokenLanguage {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
 
