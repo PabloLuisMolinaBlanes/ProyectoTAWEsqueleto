@@ -10,8 +10,9 @@ import lombok.Setter;
 @Table(name = "production_country")
 public class ProductionCountry {
     @Id
-    @Column(name = "country_code", nullable = false, length = 2)
-    private String countryCode;
+    @Column(name = "country_code", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)

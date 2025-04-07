@@ -25,8 +25,13 @@ public class HelloController {
 
 
     @GetMapping("/")
-    public String hello(Model model) {
+    public String movie_upload(Model model) {
         return "movie_upload";
+    }
+
+    @GetMapping("/hello")
+    public String hello(Model model) {
+        return "hello";
     }
 
     @GetMapping("/upload")
@@ -44,7 +49,6 @@ public class HelloController {
         status.setValue("Horneada");
         statusRepository.save(status);
         movie.setStatus(status);
-        movie.setId(1);
         movieRepository.save(movie);
         model.addAttribute("value", value);
         return "upload";

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -13,6 +14,7 @@ import java.time.LocalDate;
 public class Movie {
     @Id
     @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "budget")
@@ -24,7 +26,7 @@ public class Movie {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "tagline")
+    @Column(name = "tagline", length = 5000)
     private String tagline;
 
     @Column(name = "runtime")
@@ -55,5 +57,12 @@ public class Movie {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "status_id")
     private com.example.proyectotawgrupo2.entity.Status status;
-
+    /*
+    @ManyToMany
+    @JoinTable(name = "Genre", joinColumns = {
+            @JoinColumn(name = "genre_id", referencedColumnName = ""),
+            @JoinColumn(name = "movie_id")
+    })
+    private List<Genre> genres;
+    */
 }

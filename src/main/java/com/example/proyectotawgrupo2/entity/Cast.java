@@ -10,13 +10,14 @@ import lombok.Setter;
 @Table(name = "cast")
 public class Cast {
     @Id
-    @Column(name = "id", nullable = false, length = 100)
-    private String id;
+    @Column(name = "id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id", nullable = false)
-    private com.example.proyectotawgrupo2.entity.Credit credit;
+    private com.example.proyectotawgrupo2.entity.Movie movie;
 
     @Column(name = "`order`")
     private Integer order;

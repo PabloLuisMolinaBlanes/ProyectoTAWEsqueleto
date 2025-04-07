@@ -11,6 +11,7 @@ import lombok.Setter;
 public class Credit {
     @Id
     @Column(name = "id", nullable = false, length = 100)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     @ManyToOne(fetch = FetchType.LAZY)
