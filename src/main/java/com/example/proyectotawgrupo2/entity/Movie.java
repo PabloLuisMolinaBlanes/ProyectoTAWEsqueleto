@@ -57,12 +57,60 @@ public class Movie {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "status_id")
     private com.example.proyectotawgrupo2.entity.Status status;
-    /*
+
     @ManyToMany
-    @JoinTable(name = "Genre", joinColumns = {
-            @JoinColumn(name = "genre_id", referencedColumnName = ""),
-            @JoinColumn(name = "movie_id")
-    })
+    @JoinTable(
+            name = "movie_genre"
+            , joinColumns = {@JoinColumn(
+        name = "movie_id"
+    )}, inverseJoinColumns = {@JoinColumn(
+            name = "genre_id"
+    )}
+    )
     private List<Genre> genres;
-    */
+
+    @ManyToMany
+    @JoinTable(
+            name = "movie_keyword"
+            , joinColumns = {@JoinColumn(
+            name = "movie_id"
+    )}, inverseJoinColumns = {@JoinColumn(
+            name = "keyword_id"
+    )}
+    )
+    private List<Keyword> keywords;
+
+    @ManyToMany
+    @JoinTable(
+            name = "movie_production_company"
+            , joinColumns = {@JoinColumn(
+            name = "movie_id"
+    )}, inverseJoinColumns = {@JoinColumn(
+            name = "company_id"
+    )}
+    )
+    private List<ProductionCompany> productionCompanies;
+
+    @ManyToMany
+    @JoinTable(
+            name = "movie_production_country"
+            , joinColumns = {@JoinColumn(
+            name = "movie_id"
+    )}, inverseJoinColumns = {@JoinColumn(
+            name = "country_code"
+    )}
+    )
+    private List<ProductionCountry> productionCountries;
+
+    @ManyToMany
+    @JoinTable(
+            name = "movie_spoken_language"
+            , joinColumns = {@JoinColumn(
+            name = "movie_id"
+    )}, inverseJoinColumns = {@JoinColumn(
+            name = "language_id"
+    )}
+    )
+    private List<SpokenLanguage> spokenLanguages;
+
 }

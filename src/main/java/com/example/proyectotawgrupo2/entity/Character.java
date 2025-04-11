@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -21,4 +23,6 @@ public class Character {
     @JoinColumn(name = "cast_id")
     private Cast cast;
 
+    @ManyToMany(mappedBy = "characters")
+    private List<Person> persons;
 }

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -26,5 +28,8 @@ public class Crew {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "job_id")
     private com.example.proyectotawgrupo2.entity.Job job;
+
+    @ManyToMany(mappedBy = "crewMembers")
+    private List<Person> persons;
 
 }

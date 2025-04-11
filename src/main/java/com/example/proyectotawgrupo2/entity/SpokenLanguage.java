@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -17,4 +19,6 @@ public class SpokenLanguage {
     @Column(name = "name")
     private String name;
 
+    @ManyToMany(mappedBy = "spokenLanguages")
+    private List<Movie> movies;
 }
